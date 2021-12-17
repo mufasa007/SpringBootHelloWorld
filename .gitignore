@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+/mvnw
+/SpringBootHelloWorld.iml
+/mvnw.cmd
+/.mvn/
+/.idea/
