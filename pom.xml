@@ -15,7 +15,7 @@
     <description>SpringBootHelloWorld</description>
     <properties>
         <java.version>1.8</java.version>
-        <main.class>com.example.springboothelloworld.SpringBootHelloWorldApplication</main.class>
+        <main.class>com.example.springboothelloworld.Application</main.class>
     </properties>
     <dependencies>
         <dependency>
