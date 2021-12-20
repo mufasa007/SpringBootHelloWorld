@@ -26,4 +26,10 @@ public class HelloController {
     public String test() {
         return "hello world! test";
     }
+
+    @GetMapping("/test123")
+    @ResponseBody
+    public String test123() {
+        return "hello world! test123";
+    }
 }
