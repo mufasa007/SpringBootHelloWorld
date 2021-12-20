@@ -27,9 +27,9 @@ public class HelloController {
         return "hello world! test";
     }
 
-    @GetMapping("/test123")
+    @GetMapping("/testNow")
     @ResponseBody
-    public String test123() {
+    public String testNow() {
         return "hello world! test123";
     }
 }
