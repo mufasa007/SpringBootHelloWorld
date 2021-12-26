@@ -18,12 +18,15 @@ import java.util.concurrent.TimeUnit;
  * synchronized锁的是对象：方法的调用者,谁先拿到谁执行
  * 3,有一个非synchronized的方法,没有锁的影响
  * 你好先
+ * 4,2个对象phone1\phone2，不同的锁
+ * 打电话先
  */
 public class Application {
     public static void main(String[] args) {
-        Phone phone = new Phone();
+        Phone phone1 = new Phone();
+        Phone phone2 = new Phone();
         new Thread(()->{
-            phone.sendMsg();
+            phone1.sendMsg();
         },"A").start();
 
         // 休息1秒钟
@@ -34,7 +37,7 @@ public class Application {
         }
 
         new Thread(()->{
-            phone.hello();
+            phone2.call();
         },"B").start();
     }
 
