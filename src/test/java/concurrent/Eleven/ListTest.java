@@ -13,7 +13,13 @@ import java.util.List;
 public class ListTest {
 
     public static void main(String[] args) {
-        List<String> stringList = Arrays.asList("1", "2", "3");
+        List<String> stringList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            int finalI = i;
+            new Thread(()->{
+                stringList.add(finalI +"");
+            }).start();
+        }
         stringList.forEach(System.out::println);
     }
 }
