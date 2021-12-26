@@ -13,6 +13,9 @@ import java.util.concurrent.TimeUnit;
  * 8锁问题
  * 1,两个synchronized多线程执行
  * 发短信先
+ * 2,两个synchronized多线程执行，先调用的延时4s
+ * 发短信先,因为有锁的存在
+ * synchronized锁的是对象：方法的调用者,谁先拿到谁执行
  */
 public class Application {
     public static void main(String[] args) {
@@ -36,7 +39,14 @@ public class Application {
 }
 
 class Phone{
+    //
     public synchronized void sendMsg(){
+        // 休息1秒钟
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("发短信");
     }
 
