@@ -20,7 +20,9 @@ import java.util.concurrent.TimeUnit;
  * 你好先
  * 4,2个对象phone1\phone2，不同的锁
  * 打电话先
- * 5,增加static静态方法，class模板锁
+ * 5,增加static静态方法1个对象,class模板锁
+ * 发短信
+ * 6,增加static静态方法2个对象，class模板锁
  * 发短信
  */
 public class Application {
