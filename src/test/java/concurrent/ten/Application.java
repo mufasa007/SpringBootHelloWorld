@@ -24,6 +24,8 @@ import java.util.concurrent.TimeUnit;
  * 发短信
  * 6,增加static静态方法2个对象，class模板锁
  * 发短信
+ * 7,static的synchronized 和 普通的synchronized方法1个对象，两把锁互不影响
+ * 打电话
  */
 public class Application {
     public static void main(String[] args) {
@@ -58,7 +60,7 @@ class Phone{
         System.out.println("发短信");
     }
 
-    public static synchronized void call(){
+    public synchronized void call(){
         System.out.println("打电话");
     }
 
