@@ -20,6 +20,8 @@ import java.util.concurrent.TimeUnit;
  * 你好先
  * 4,2个对象phone1\phone2，不同的锁
  * 打电话先
+ * 5,增加static静态方法，class模板锁
+ * 发短信
  */
 public class Application {
     public static void main(String[] args) {
@@ -45,7 +47,7 @@ public class Application {
 
 class Phone{
     //
-    public synchronized void sendMsg(){
+    public static synchronized void sendMsg(){
         // 休息1秒钟
         try {
             TimeUnit.SECONDS.sleep(4);
@@ -55,7 +57,7 @@ class Phone{
         System.out.println("发短信");
     }
 
-    public synchronized void call(){
+    public static synchronized void call(){
         System.out.println("打电话");
     }
 
