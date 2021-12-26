@@ -1,25 +1,31 @@
 package concurrent.Eleven;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author 59456
  * @Date 2021/12/26
- * @Descrip
+ * @Descrip ConcurrentModificationException
  * @Version 1.0
+ */
+/**
+ * 1,使用vector解决，本质就是synchronized(jdk1.0)
  */
 public class ListTest {
 
-    public static void main(String[] args) {
-        List<String> stringList = new ArrayList<>();
+
+    public static void main(String[] args) throws InterruptedException {
+        List<String> stringList = new Vector<>();
+
         for (int i = 0; i < 10; i++) {
-            int finalI = i;
             new Thread(()->{
-                stringList.add(finalI +"");
-            }).start();
+                stringList.add(UUID.randomUUID().toString().substring(0,5));
+                System.out.println(stringList);
+            },String.valueOf(i)).start();
         }
+        stringList.forEach(System.out::println);
+        TimeUnit.SECONDS.sleep(4);
         stringList.forEach(System.out::println);
     }
 }
