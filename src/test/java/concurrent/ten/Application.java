@@ -26,10 +26,13 @@ import java.util.concurrent.TimeUnit;
  * 发短信
  * 7,static的synchronized 和 普通的synchronized方法1个对象，两把锁互不影响
  * 打电话
+ * 8,static的synchronized 和 普通的synchronized方法1个对象，两把锁互不影响
+ * 打电话
  */
 public class Application {
     public static void main(String[] args) {
         Phone phone1 = new Phone();
+        Phone phone2 = new Phone();
         new Thread(()->{
             phone1.sendMsg();
         },"A").start();
@@ -42,7 +45,7 @@ public class Application {
         }
 
         new Thread(()->{
-            phone1.call();
+            phone2.call();
         },"B").start();
     }
 
