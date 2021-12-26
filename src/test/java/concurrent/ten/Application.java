@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 public class Application {
     public static void main(String[] args) {
         Phone phone1 = new Phone();
-        Phone phone2 = new Phone();
         new Thread(()->{
             phone1.sendMsg();
         },"A").start();
@@ -39,7 +38,7 @@ public class Application {
         }
 
         new Thread(()->{
-            phone2.call();
+            phone1.call();
         },"B").start();
     }
 
