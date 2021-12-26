@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
  * 2,两个synchronized多线程执行，先调用的延时4s
  * 发短信先,因为有锁的存在
  * synchronized锁的是对象：方法的调用者,谁先拿到谁执行
+ * 3,有一个非synchronized的方法,没有锁的影响
+ * 你好先
  */
 public class Application {
     public static void main(String[] args) {
@@ -32,7 +34,7 @@ public class Application {
         }
 
         new Thread(()->{
-            phone.call();
+            phone.hello();
         },"B").start();
     }
 
@@ -52,6 +54,10 @@ class Phone{
 
     public synchronized void call(){
         System.out.println("打电话");
+    }
+
+    public void hello(){
+        System.out.println("你好");
     }
 }
 
