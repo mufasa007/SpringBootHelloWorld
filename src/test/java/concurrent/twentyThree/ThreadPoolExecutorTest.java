@@ -18,7 +18,7 @@ public class ThreadPoolExecutorTest {
                 TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(3),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.DiscardOldestPolicy());
+                new ThreadPoolExecutor.CallerRunsPolicy());
 
         try {
             // 最大承载：deque+max
