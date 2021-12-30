@@ -20,7 +20,7 @@ public class BlockingQueueTest {
     }
 
     /**
-     * 抛出异常的方式
+     * 1,抛出异常的方式
      */
     public static void  test1(){
         ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
@@ -60,7 +60,7 @@ public class BlockingQueueTest {
 
 
     /**
-     * 阻塞等待
+     * 2,阻塞等待
      */
     public static void  test3() throws InterruptedException {
         ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
@@ -82,7 +82,7 @@ public class BlockingQueueTest {
 
 
     /**
-     * 阻塞等待超时退出
+     * 4,阻塞等待超时退出
      */
     public static void  test4() throws InterruptedException {
         ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
