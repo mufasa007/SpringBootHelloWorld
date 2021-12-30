@@ -18,11 +18,11 @@ public class ThreadPoolExecutorTest {
                 TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(3),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.AbortPolicy());
+                new ThreadPoolExecutor.DiscardPolicy());
 
         try {
             // 最大承载：deque+max
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 20; i++) {
                 int finalI = i;
                 executorService.execute(()->{
                     System.out.println(Thread.currentThread().getName()+"=>" + finalI);
