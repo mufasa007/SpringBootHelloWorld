@@ -1,8 +1,10 @@
 package concurrent.twentyFive;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * @Author 59456
@@ -29,15 +31,25 @@ public class FunctionInterfaceTest {
 //        };
 
 //        // 函数式Function
-        Function<String, String> function = e->"==>" + e;
-//
+//        Function<String, String> function = e->"==>" + e;
 //        System.out.println(function.apply("123456"));
 //        System.out.println(function.apply("123"));
 
-//        Predicate<String> predicate = e->"hello".equals(e);
-        Predicate<String> predicate = "hello"::equals;
-        System.out.println(predicate.test("hello"));
-        System.out.println(predicate.test("12345"));
+//        // 断定型接口Predicate
+////        Predicate<String> predicate = e->"hello".equals(e);
+//        Predicate<String> predicate = "hello"::equals;
+//        System.out.println(predicate.test("hello"));
+//        System.out.println(predicate.test("12345"));
+
+//        // 消费者接口consumer
+////        Predicate<String> predicate = e->"hello".equals(e);
+//        Consumer<String> consumer = System.out::println;
+//        consumer.accept("hello");
+//        consumer.accept("12345");
+
+        // 生产型接口Supplier
+        Supplier<String> stringSupplier = ()->"hello";
+        System.out.println(stringSupplier.get());
     }
 
 }
