@@ -2,6 +2,7 @@ package concurrent.twentyFive;
 
 import java.util.ArrayList;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * @Author 59456
@@ -27,11 +28,16 @@ public class FunctionInterfaceTest {
 //            }
 //        };
 
-        // 函数式Function
+//        // 函数式Function
         Function<String, String> function = e->"==>" + e;
+//
+//        System.out.println(function.apply("123456"));
+//        System.out.println(function.apply("123"));
 
-        System.out.println(function.apply("123456"));
-        System.out.println(function.apply("123"));
+//        Predicate<String> predicate = e->"hello".equals(e);
+        Predicate<String> predicate = "hello"::equals;
+        System.out.println(predicate.test("hello"));
+        System.out.println(predicate.test("12345"));
     }
 
 }
