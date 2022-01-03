@@ -10,15 +10,21 @@ import java.lang.reflect.InvocationTargetException;
  * @Version 1.0
  */
 public class Holder {
+    private static volatile boolean reflaxFlag = false;
     private Holder() {
     }
 
     public static Holder getInstance(){
         synchronized (Holder.class){
-            if(InnerClass.holder != null){
+            if(reflaxFlag == false){
+                reflaxFlag = true;
+            }else {
                 throw new RuntimeException("不要使用反射破坏异常! ");
-//                return InnerClass.holder;
             }
+
+  /*          if(InnerClass.holder != null){
+//                return InnerClass.holder;
+            }*/
             return InnerClass.holder;
         }
     }
