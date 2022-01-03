@@ -11,16 +11,20 @@ import java.util.concurrent.TimeUnit;
 public class VolatileTest {
     private static volatile Integer sum = 0;
     public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2000; i++) {
             new Thread(()->{
                 add();
             }).start();
         }
-        TimeUnit.SECONDS.sleep(1);
+//        TimeUnit.SECONDS.sleep(1);
+        while (Thread.activeCount()>2){
+            // 1条GC线程,1条主线程
+            Thread.yield();
+        }
         System.out.println("sum=>"+sum);
     }
 
     public static void add(){
-        sum += 1;
+        sum ++;
     }
 }
