@@ -26,6 +26,6 @@ public class VolatileTest {
     }
 
     public static void add(){
-        sum.set(sum.get()+1);
+        sum.getAndIncrement();
     }
 }
