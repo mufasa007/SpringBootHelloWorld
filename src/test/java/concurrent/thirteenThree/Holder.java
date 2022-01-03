@@ -14,7 +14,13 @@ public class Holder {
     }
 
     public static Holder getInstance(){
-        return InnerClass.holder;
+        synchronized (Holder.class){
+            if(InnerClass.holder != null){
+                throw new RuntimeException("不要使用反射破坏异常! ");
+//                return InnerClass.holder;
+            }
+            return InnerClass.holder;
+        }
     }
 
     public static class InnerClass{
@@ -22,9 +28,10 @@ public class Holder {
     }
 
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        Holder holder0 = getInstance();
+//        Holder holder0 = getInstance();
         Constructor<Holder> constructor = Holder.class.getDeclaredConstructor(null);
         constructor.setAccessible(true);
+        Holder holder0 = constructor.newInstance();
         Holder holder1 = constructor.newInstance();
 
         System.out.println(holder0);
