@@ -11,7 +11,7 @@ public class LazyMan {
         System.out.println(Thread.currentThread().getName() + "ok");
     }
 
-    private static LazyMan lazyMan;
+    private static volatile LazyMan lazyMan;
 
     /**
      * 单线程下，没有问题，但是高并发时GG
