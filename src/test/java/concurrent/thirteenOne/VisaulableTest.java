@@ -1,6 +1,7 @@
 package concurrent.thirteenOne;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author 59456
@@ -10,21 +11,19 @@ import java.util.concurrent.TimeUnit;
  */
 public class VisaulableTest {
 //    private static Integer count = 0;
-    private static volatile Integer count = 0;
+    private static volatile AtomicInteger count = new AtomicInteger(0);
     public static void main(String[] args) throws InterruptedException {
 
         new Thread(()->{
             System.out.println("recursive in! ");
-            while (count==0){
-//                System.out.println(count);
+            while (count.get()==0){
+
             }
             System.out.println("recursive out! ");
         }).start();
 
         TimeUnit.SECONDS.sleep(1);
-//        for (int i = 0; i < 10; i++) {
-            count ++;
-//        }
+            count.set(count.get()+1);
         System.out.println("counting! ");
         System.out.println("main thread =>" + count);
     }

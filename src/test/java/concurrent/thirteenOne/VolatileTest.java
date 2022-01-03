@@ -1,6 +1,7 @@
 package concurrent.thirteenOne;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author 59456
@@ -9,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * @Version 1.0
  */
 public class VolatileTest {
-    private static volatile Integer sum = 0;
+    private static volatile AtomicInteger sum = new AtomicInteger(0);
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 2000; i++) {
             new Thread(()->{
@@ -25,6 +26,6 @@ public class VolatileTest {
     }
 
     public static void add(){
-        sum ++;
+        sum.set(sum.get()+1);
     }
 }
