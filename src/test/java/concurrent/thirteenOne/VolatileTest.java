@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @Version 1.0
  */
 public class VolatileTest {
-    private static  Integer sum = 0;
+    private static volatile Integer sum = 0;
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 10; i++) {
             new Thread(()->{
@@ -20,7 +20,7 @@ public class VolatileTest {
         System.out.println("sum=>"+sum);
     }
 
-    public synchronized static void add(){
+    public static void add(){
         sum += 1;
     }
 }
