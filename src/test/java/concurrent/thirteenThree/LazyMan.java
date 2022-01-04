@@ -1,5 +1,8 @@
 package concurrent.thirteenThree;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * @Author 59456
  * @Date 2022/1/3
@@ -25,9 +28,9 @@ public class LazyMan {
                     lazyMan = new LazyMan();// 不是原子性操作
 
                     /**
-                     * 1，分配内存空间
+                     * 1，分配内存空间A
                      * 2，执行构造方法，初始化对象
-                     * 3，把这个对象指向这个空间
+                     * 3，把这个对象指向这个内存空间A
                      */
                 }
             }
@@ -35,12 +38,22 @@ public class LazyMan {
         return lazyMan;
     }
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+/*        for (int i = 0; i < 10; i++) {
             new Thread(()->{
                 LazyMan.getInstance();
             },String.valueOf(i)).start();
+        }*/
 
-        }
+        LazyMan lazyMan0 = LazyMan.getInstance();
+
+        Constructor<LazyMan> constructor = LazyMan.class.getDeclaredConstructor(null);
+        constructor.setAccessible(true);
+        LazyMan lazyMan1 = constructor.newInstance(null);
+
+        System.out.println(lazyMan0);
+        System.out.println(lazyMan1);
+
+        LazyMan lazyMan2 = constructor.newInstance(null);
     }
 }
