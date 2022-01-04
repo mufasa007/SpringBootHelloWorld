@@ -11,10 +11,14 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class LazyMan {
 
+    private static boolean reflectFlag = false;
+
     // 3重检测！
     private LazyMan() {
         synchronized (LazyMan.class){
-            if(lazyMan!=null){
+            if(reflectFlag == false){
+                reflectFlag = true;
+            }else {
                 throw new RuntimeException("反射破坏单例被我禁止！");
             }
         }
