@@ -53,15 +53,15 @@ public class LazyMan {
             },String.valueOf(i)).start();
         }*/
 
-        LazyMan lazyMan0 = LazyMan.getInstance();
+//        LazyMan lazyMan0 = LazyMan.getInstance();
 
         Constructor<LazyMan> constructor = LazyMan.class.getDeclaredConstructor(null);
         constructor.setAccessible(true);
         LazyMan lazyMan1 = constructor.newInstance(null);
-
-        System.out.println(lazyMan0);
-        System.out.println(lazyMan1);
-
         LazyMan lazyMan2 = constructor.newInstance(null);
+
+//        System.out.println(lazyMan0);
+        System.out.println(lazyMan1);
+        System.out.println(lazyMan2);
     }
 }
