@@ -1,5 +1,8 @@
 package concurrent.thirteenThree;
 
+import java.lang.reflect.Constructor;
+import java.util.ResourceBundle;
+
 /**
  * @Author 59456
  * @Date 2022/1/3
@@ -14,10 +17,13 @@ public enum EnumSingle {
         return INSTANCE;
     }
 
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         EnumSingle instance0 = EnumSingle.INSTANCE;
-        EnumSingle instance1 = EnumSingle.INSTANCE;
+
+        Constructor<EnumSingle> declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class,int.class);
+        declaredConstructor.setAccessible(true);
+//        Exception in thread "main" java.lang.NoSuchMethodException: concurrent.thirteenThree.EnumSingle.<init>()
+        EnumSingle instance1 = declaredConstructor.newInstance(null);
 
         System.out.println(instance0);
         System.out.println(instance1);
