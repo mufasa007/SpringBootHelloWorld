@@ -1,6 +1,7 @@
 package concurrent.thirteenThree;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
 /**
@@ -50,7 +51,7 @@ public class LazyMan {
         return lazyMan;
     }
 
-    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchFieldException {
 /*        for (int i = 0; i < 10; i++) {
             new Thread(()->{
                 LazyMan.getInstance();
@@ -61,8 +62,14 @@ public class LazyMan {
 
         Constructor<LazyMan> constructor = LazyMan.class.getDeclaredConstructor(null);
         constructor.setAccessible(true);
+
+        Field reflectFlag = LazyMan.class.getDeclaredField("reflectFlag");
+        reflectFlag.setAccessible(true);
+
         LazyMan lazyMan1 = constructor.newInstance(null);
+        reflectFlag.set(lazyMan1,false);
         LazyMan lazyMan2 = constructor.newInstance(null);
+        reflectFlag.set(lazyMan2,false);
 
 //        System.out.println(lazyMan0);
         System.out.println(lazyMan1);
