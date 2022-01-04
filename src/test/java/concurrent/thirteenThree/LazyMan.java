@@ -10,7 +10,15 @@ import java.lang.reflect.InvocationTargetException;
  * @Version 1.0
  */
 public class LazyMan {
+
+    // 3重检测！
     private LazyMan() {
+        synchronized (LazyMan.class){
+            if(lazyMan!=null){
+                throw new RuntimeException("反射破坏单例被我禁止！");
+            }
+        }
+
         System.out.println(Thread.currentThread().getName() + "ok");
     }
 
