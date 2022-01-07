@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicStampedReference;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Author 59456
@@ -21,7 +22,7 @@ public class CasTest {
         // 正常的业务操作，这里比较的都是一个个对象
 //        AtomicStampedReference<User> atomicStampedReference = new AtomicStampedReference(new User(1,"",1),1);
         AtomicStampedReference atomicStampedReference = new AtomicStampedReference(100,1);
-
+        new ReentrantLock(true);
         new Thread(()->{
             int stamp = atomicStampedReference.getStamp();
             System.out.println(Thread.currentThread().getName()+"=stamp>"+stamp+";value=>"+atomicStampedReference.get(new int[]{stamp}));
