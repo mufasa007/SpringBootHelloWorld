@@ -1,5 +1,6 @@
 package spring.three;
 
+import com.example.springboothelloworld.web.dao.impl.UserDaoMysqlImpl;
 import com.example.springboothelloworld.web.service.UserService;
 import com.example.springboothelloworld.web.service.impl.UserServiceImpl;
 
@@ -12,6 +13,7 @@ import com.example.springboothelloworld.web.service.impl.UserServiceImpl;
 public class IocTest {
     public static void main(String[] args) {
         UserService userService = new UserServiceImpl();
+        userService.setUserDao(new UserDaoMysqlImpl());
         userService.getUser();
     }
 }

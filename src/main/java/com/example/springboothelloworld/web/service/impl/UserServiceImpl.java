@@ -14,7 +14,14 @@ import com.example.springboothelloworld.web.service.UserService;
 public class UserServiceImpl implements UserService {
 
 //    private UserDao userDao = new UserDaoImpl();
-    private UserDao userDao = new UserDaoPgImpl();
+//    private UserDao userDao = new UserDaoPgImpl();
+    private UserDao userDao;
+
+    // 利用set方法实现动态注入
+    @Override
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     public void getUser() {
