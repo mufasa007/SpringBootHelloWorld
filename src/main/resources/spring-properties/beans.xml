@@ -12,19 +12,29 @@
      class = new的对象（本质与import一致）
      properties 给属性设置值
      -->
-    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
-        <property name="str" value="wanyu"/>
-    </bean>
-
-<!--    &lt;!&ndash; 使用下标幅值 &ndash;&gt;-->
-<!--    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">-->
-<!--        <constructor-arg index="0" value="hello"/>-->
-<!--    </bean>-->
-
-    <!-- 使用类型创建，不建议使用 -->
+    <!-- 1，无参构造 -->
 <!--    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
-        <constructor-arg type="java.lang.String" value="12345"/>
+        <property name="str" value="wanyu"/>
     </bean>-->
+
+    <!-- 2.1有参构造：下标 -->
+<!--    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
+        <constructor-arg index="0" value="wanyu"/>
+    </bean>-->
+
+    <!-- 2.2有参构造：类型 -->
+<!--    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
+        <constructor-arg type="java.lang.String" value="wanyu"/>
+    </bean>-->
+
+    <!-- 2.2有参构造：入参名 -->
+    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
+        <constructor-arg name="str" value="wanyu"/>
+    </bean>
+    <alias name="hello" alias="helloRandom"/>
+
+    <bean id="helloT" class="com.example.springboothelloworld.bean.pojo.HelloT">
+    </bean>
 
 
 

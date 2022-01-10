@@ -9,8 +9,9 @@ package com.example.springboothelloworld.bean.pojo;
 public class Hello {
     private String str;
 
-    public Hello() {
-        System.out.println("初始化hello对象! ");
+    public Hello(String str) {
+        this.str = str;
+        System.out.println("有参构造初始化hello对象! ");
     }
 
     public String getStr() {
@@ -19,13 +20,6 @@ public class Hello {
 
     public void setStr(String str) {
         this.str = str;
-    }
-
-    @Override
-    public String toString() {
-        return "Hello{" +
-                "str='" + str + '\'' +
-                '}';
     }
 
     public void show(){
