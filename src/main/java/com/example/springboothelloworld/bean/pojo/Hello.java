@@ -9,6 +9,10 @@ package com.example.springboothelloworld.bean.pojo;
 public class Hello {
     private String str;
 
+    public Hello() {
+        System.out.println("初始化hello对象! ");
+    }
+
     public String getStr() {
         return str;
     }
@@ -22,5 +26,9 @@ public class Hello {
         return "Hello{" +
                 "str='" + str + '\'' +
                 '}';
+    }
+
+    public void show(){
+        System.out.println("数据=>"+str);
     }
 }

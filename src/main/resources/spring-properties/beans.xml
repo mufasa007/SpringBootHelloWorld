@@ -13,7 +13,19 @@
      properties 给属性设置值
      -->
     <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
-        <property name="str" value="wanyu"></property>
+        <property name="str" value="wanyu"/>
     </bean>
+
+<!--    &lt;!&ndash; 使用下标幅值 &ndash;&gt;-->
+<!--    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">-->
+<!--        <constructor-arg index="0" value="hello"/>-->
+<!--    </bean>-->
+
+    <!-- 使用类型创建，不建议使用 -->
+<!--    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
+        <constructor-arg type="java.lang.String" value="12345"/>
+    </bean>-->
+
+
 
 </beans>
