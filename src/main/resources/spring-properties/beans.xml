@@ -28,7 +28,7 @@
     </bean>-->
 
     <!-- 2.2有参构造：入参名 -->
-    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello">
+    <bean id="hello" class="com.example.springboothelloworld.bean.pojo.Hello" name="hello2,h2">
         <constructor-arg name="str" value="wanyu"/>
     </bean>
     <alias name="hello" alias="helloRandom"/>

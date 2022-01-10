@@ -15,7 +15,7 @@ public class XmlIocTest {
         // 获取spring的上下文对象
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-properties/beans.xml");
         // 我们的对象现在都在Spring中管理了，使用的时候直接取出即可
-        Hello hello = (Hello) context.getBean("helloRandom");
+        Hello hello = (Hello) context.getBean("h2");
         hello.show();
     }
 }
