@@ -19,6 +19,13 @@ public class Student {
     private String wife;
     private Properties info;
 
+    public Student() {
+    }
+
+    public Student(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
