@@ -6,10 +6,10 @@
     <bean name="cat" class="com.example.springboothelloworld.bean.pojo.Cat"/>
     <bean name="dog" class="com.example.springboothelloworld.bean.pojo.Dog"/>
 
-    <bean id="people" class="com.example.springboothelloworld.bean.pojo.People">
+    <!-- 会自动在容器上下文查找，和自己对象set方法后面对应的bean -->
+<!--    <bean id="people" class="com.example.springboothelloworld.bean.pojo.People" autowire="byName">-->
+    <bean id="people" class="com.example.springboothelloworld.bean.pojo.People" autowire="byType">
         <property name="name" value="wanyu-people"/>
-        <property name="cat" ref="cat"/>
-        <property name="dog" ref="dog"/>
     </bean>
 
 </beans>
