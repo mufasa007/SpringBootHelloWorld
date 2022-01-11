@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="student" class="com.example.springboothelloworld.bean.pojo.Student">
+        <!-- 1,普通值注入 -->
+        <property name="name" value="wanyu"/>
+        <!-- 2,引用注入 -->
+        <property name="address" ref="address"/>
+        <!-- map -->
+        <property name="card">
+            <map key-type="java.lang.String" value-type="java.lang.String">
+                <entry key="phone" value="123456"/>
+                <entry key="idCard" value="42061111"/>
+            </map>
+        </property>
+        <!-- 数组 -->
+        <property name="books">
+            <array>
+                <value>java并发</value>
+                <value>集群</value>
+                <value>jvm Hotspot</value>
+            </array>
+        </property>
+        <property name="hobbys">
+            <list>
+                <value>打游戏</value>
+                <value>听歌</value>
+                <value>骑车</value>
+            </list>
+        </property>
+        <property name="games">
+            <set>
+                <value>lol</value>
+                <value>wow</value>
+                <value>原神</value>
+            </set>
+        </property>
+        <property name="wife">
+            <value></value>
+        </property>
+        <property name="info">
+            <value>
+                jdbc.driver.className=com.mysql.jdbc.Driver
+                jdbc.url=jdbc:mysql://localhost:3306/mydb
+            </value>
+        </property>
+    </bean>
+
+    <bean id="address" class="com.example.springboothelloworld.bean.pojo.Address">
+        <property name="location" value="杭州"/>
+    </bean>
+
+</beans>
