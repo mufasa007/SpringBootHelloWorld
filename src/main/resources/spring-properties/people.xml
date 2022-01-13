@@ -1,15 +1,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean name="cat" class="com.example.springboothelloworld.bean.pojo.Cat"/>
+    <context:annotation-config/>
+
+    <bean name="cat1" class="com.example.springboothelloworld.bean.pojo.Cat"/>
+    <bean name="cat2" class="com.example.springboothelloworld.bean.pojo.Cat"/>
     <bean name="dog" class="com.example.springboothelloworld.bean.pojo.Dog"/>
-
-    <!-- 会自动在容器上下文查找，和自己对象set方法后面对应的bean -->
-<!--    <bean id="people" class="com.example.springboothelloworld.bean.pojo.People" autowire="byName">-->
-    <bean id="people" class="com.example.springboothelloworld.bean.pojo.People" autowire="byType">
-        <property name="name" value="wanyu-people"/>
-    </bean>
+    <bean id="people" class="com.example.springboothelloworld.bean.pojo.People"/>
 
 </beans>
