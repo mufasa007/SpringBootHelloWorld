@@ -15,8 +15,18 @@ public class Proxy {
     }
 
     public void rent(){
-        fare();
+        seeHouse();
+        sign();
         host.rent();
+        fare();
+    }
+
+    public void seeHouse(){
+        System.out.println("中介带人看房");
+    }
+
+    public void sign(){
+        System.out.println("中介签合同");
     }
 
     public void fare(){

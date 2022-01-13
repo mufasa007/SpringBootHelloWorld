@@ -7,6 +7,5 @@ package spring.seventeen.pojo;
  * @Version 1.0
  */
 public interface Rent {
-
     void rent();
 }
