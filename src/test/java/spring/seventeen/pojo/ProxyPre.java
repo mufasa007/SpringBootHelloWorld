@@ -6,7 +6,7 @@ package spring.seventeen.pojo;
  * @Descrip
  * @Version 1.0
  */
-public class Proxy {
+public class ProxyPre {
 
     private Host host;
 
