@@ -19,6 +19,12 @@
         <swagger.version>2.9.2</swagger.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
         <!-- swagger-UI -->
         <dependency>
             <groupId>io.springfox</groupId>

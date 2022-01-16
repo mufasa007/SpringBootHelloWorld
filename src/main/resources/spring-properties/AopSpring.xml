@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userAopService" class="com.example.springboothelloworld.web.service.impl.UserAopServiceImpl"/>
+    <bean id="logBefore" class="com.example.springboothelloworld.bean.pojo.LogBefore"/>
+    <bean id="logAfter" class="com.example.springboothelloworld.bean.pojo.LogAfter"/>
+
+<!--    &lt;!&ndash; 导入aop的切入点 &ndash;&gt;
+    &lt;!&ndash; 方式1:使用原生的Spring API接口 &ndash;&gt;
+    &lt;!&ndash; 配置aop：需要导入aop的约束 &ndash;&gt;
+    <aop:config>
+        &lt;!&ndash;切入点：expression表达式，execution(要执行的位置! ****)&ndash;&gt;
+        <aop:pointcut id="pointcut"
+                      expression="execution(* com.example.springboothelloworld.web.service.impl.UserAopServiceImpl.*(..))"/>
+        &lt;!&ndash;执行环绕增加&ndash;&gt;
+        <aop:advisor advice-ref="logBefore" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="logAfter" pointcut-ref="pointcut"/>
+    </aop:config>-->
+
+    <!--方法2：自定义类-->
+    <bean id="customeLog" class="com.example.springboothelloworld.bean.pojo.CustomeLog"/>
+    <aop:config>
+        <!--自定义切面 ref 要引用的类-->
+        <aop:aspect ref="customeLog">
+            <!--切入点-->
+            <aop:pointcut id="point" expression="execution(* com.example.springboothelloworld.web.service.impl.UserAopServiceImpl.* (..))"/>
+            <!--通知-->
+            <aop:before method="before" pointcut-ref="point"/>
+            <aop:after method="after" pointcut-ref="point"/>
+        </aop:aspect>
+    </aop:config>
+
+
+</beans>
